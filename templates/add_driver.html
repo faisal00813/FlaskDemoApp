@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block body %}
+  
+    <form action="{{ url_for('add_driver') }}" method="post" class="add-driver">
+      <dl>
+        <dt>Name :
+        <dd><input type="text" size="30" name="name">
+        <dt>Phone:
+        <dd><input type="text" size="30" name="phone">
+        <dt>Vehicle no:
+        <dd><input type="text" size="30" name="vehicleno">
+        <dd><input type="submit" value="Add driver">
+      </dl>
+    </form>
+  
+  <ul class="entries">
+  {% for driver in drivers %}
+    <li><h2>{{ driver[1] }}</h2>{{ driver.phone }} {{ driver.vehicleno }}
+  {% else %}
+    <li><em>Unbelievable.  No entries here so far</em>
+  {% endfor %}
+  </ul>
+{% endblock %}
